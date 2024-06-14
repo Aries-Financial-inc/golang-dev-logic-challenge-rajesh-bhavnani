@@ -1,17 +1,12 @@
 package main
 
 import (
-	"net/http"
-	"fmt"
+    "log"
+    "net/http"
+    "github.com/Aries-Financial-inc/golang-dev-logic-challenge-rajesh-bhavnani/controllers"
 )
 
 func main() {
-	http.HandleFunc("/analyze", analyzeHandler)
-
-	fmt.Println("Starting server on port 8080")
-	http.ListenAndServe(":8080", nil)
-}
-
-func analyzeHandler(w http.ResponseWriter, r *http.Request) {
-	// Your code here
+    http.HandleFunc("/analyze", controllers.AnalysisHandler)
+    log.Fatal(http.ListenAndServe(":8080", nil))
 }
